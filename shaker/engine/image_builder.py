@@ -131,7 +131,7 @@ def build_image_with_dib(openstack_client, image_name):
         temp_dir = tempfile.mkdtemp()
         os.chdir(temp_dir)
         filename = os.path.join(temp_dir, 'shaker-image.qcow2')
-        command = 'disk-image-create -o %s %s vm shaker' % (
+        command = 'disk-image-create --no-tmpfs -o %s %s vm shaker' % (
             filename, cfg.CONF.image_builder_distro)
 
         # path: local python binaries (including virtualenv) + sys.path + $PATH
